@@ -1,6 +1,6 @@
 """
 Olorin Sledge Fork
-Version: 1.20
+Version: 1.18
 
 Disclaimer
 
@@ -16,20 +16,15 @@ or others connected with the program.
 
 See requirements.txt for versions of modules needed
 
-!! IMPORTANT INFORMATION ABOUT EXTERNAL SIGNAL MODULES !!
-    Please note this very important difference. If you use any external signals, they need to be modified as follows:
-    1) If it is a buy signal, you need to replace .exs with .buy so it creates a signals/whatever.buy (where "whatever" is anything you want)
-    2) If it is a sell signal, you need to replace .exs with .sell so it creates a signals/whatever.sell (where "whatever" is anything you want)
-    3) If it is a pausebot signal, you need to create a signals/pausebot.pause file
-    All these changes are within the external signal itself and is really easy to do via Find/Replace (advice you manually review any replace you do).
+Notes:
+- Requires Python version 3.9.x to run
 
-FUNCTIONALITY:
+Functionality:
 - Changed way profit % is calculated to be based on ROI
 - More details provided on screen on state of bot (i.e.  unrealised session profit, session profit, all time profit, bot paused or not etc)
 - Totally reworked external signals. NOTE: you CANNOT use the default signals anymore with my bot unless you modify them to work with it
 - Sell all coins on stopping bot functionality
 - Stop bot on session profit / session stop loss trigger
-- Only sell based on an external signal i.e. Stop Loss and Take Profit are ignored
 - Discord support
 - Better reporting in trades.txt
 - A history.txt that records state of bot every minute (useful for past analysis /charting)
@@ -37,11 +32,6 @@ FUNCTIONALITY:
 - BNB is no longer used as the reference for TIME_DIFFERENCE, this allows one to not have it in their tickers.txt list.
 - Tickers list can now auto reload (if set in the config.yml file)
 - Held coins displayed in a Table format
-
-Added version 1.20:
-- Has a "Market Profit". This is a comparison between your bots profits and if you had just bought BTC instead when you started your bot.
-     Please note: If your bot has already been running for a period of time, you will need to manually modify your bots_stat.json and update
-     the "market_startprice" variable. This needs to be the price of BTC when your bot originally started.
 
 """
 
@@ -101,8 +91,6 @@ from helpers.handle_creds import (
     load_discord_creds
 )
 
-# my helper utils
-from helpers.os_utils import(rchop)
 
 # for colourful logging to the console
 class txcolors:
@@ -122,7 +110,7 @@ session_tpsl_override_msg = ""
 is_bot_running = True
 
 global historic_profit_incfees_perc, historic_profit_incfees_total, trade_wins, trade_losses
-global sell_all_coins, bot_started_datetime, market_startprice, market_currprice
+global sell_all_coins, bot_started_datetime
 
 try:
     historic_profit_incfees_perc
@@ -142,7 +130,6 @@ except NameError:
     trade_losses = 0      # or some other default value.
 
 bot_started_datetime = ""
-market_startprice = 0
 
 # print with timestamps
 old_out = sys.stdout
@@ -195,17 +182,12 @@ def print_table(table):
 def get_price(add_to_historical=True):
     '''Return the current price for all coins on binance'''
 
-    global historical_prices, hsp_head, market_startprice, market_currprice
+    global historical_prices, hsp_head
 
     initial_price = {}
     prices = client.get_all_tickers()
 
     for coin in prices:
-        
-        if coin['symbol'] == "BTC" + PAIR_WITH:
-            if market_startprice == 0:
-                market_startprice = float(coin['price'])
-            market_currprice = float(coin['price'])
 
         if CUSTOM_LIST:
             if any(item + PAIR_WITH == coin['symbol'] for item in tickers) and all(item not in coin['symbol'] for item in FIATS):
@@ -359,8 +341,6 @@ def balance_report(last_price):
     if (trade_wins > 0) and (trade_losses == 0):
         WIN_LOSS_PERCENT = 100
     
-    market_profit = ((market_currprice - market_startprice)/ market_startprice) * 100
-
     print(f'')
     print(f'--------')
     print(f"STARTED         : {str(bot_started_datetime).split('.')[0]} | Running for: {str(datetime.now() - bot_started_datetime).split('.')[0]}")
@@ -373,11 +353,9 @@ def balance_report(last_price):
     print(f'        Total   : {txcolors.SELL_PROFIT if (session_profit_incfees_perc + unrealised_session_profit_incfees_perc) > 0. else txcolors.SELL_LOSS}{session_profit_incfees_perc + unrealised_session_profit_incfees_perc:.4f}% Est:${session_profit_incfees_total+unrealised_session_profit_incfees_total:.4f} {PAIR_WITH}{txcolors.DEFAULT}')
     print(f'')
     print(f'ALL TIME DATA   :')
-    print(f"Market Profit   : {txcolors.SELL_PROFIT if market_profit > 0. else txcolors.SELL_LOSS}{market_profit:.4f}% (Since STARTED){txcolors.DEFAULT}")
-    print(f'Bot Profit      : {txcolors.SELL_PROFIT if historic_profit_incfees_perc > 0. else txcolors.SELL_LOSS}{historic_profit_incfees_perc:.4f}% Est:${historic_profit_incfees_total:.4f} {PAIR_WITH}{txcolors.DEFAULT}')
+    print(f'Profit          : {txcolors.SELL_PROFIT if historic_profit_incfees_perc > 0. else txcolors.SELL_LOSS}{historic_profit_incfees_perc:.4f}% Est:${historic_profit_incfees_total:.4f} {PAIR_WITH}{txcolors.DEFAULT}')
     print(f'Completed Trades: {trade_wins+trade_losses} (Wins:{trade_wins} Losses:{trade_losses})')
     print(f'Win Ratio       : {float(WIN_LOSS_PERCENT):g}%')
-    
     print(f'--------')
     print(f'')
     
@@ -550,8 +528,7 @@ def buy():
                 #if LOG_TRADES:
                 write_log(f"\tBuy\t{coin}\t{volume[coin]}\t{last_price[coin]['price']}\t{PAIR_WITH}")
                 
-                #write_signallsell(coin.removesuffix(PAIR_WITH))
-                write_signallsell(rchop(coin, PAIR_WITH))
+                write_signallsell(coin.removesuffix(PAIR_WITH))
 
                 continue
 
@@ -622,14 +599,6 @@ def sell_coins(tpsl_override = False):
     my_table.align["Time Held"] = "l"
 
     for coin in list(coins_bought):
-        
-        #time_held = timedelta(seconds=datetime.now().timestamp()-coins_bought[coin]['timestamp'])
-        time_held = timedelta(seconds=datetime.now().timestamp()-int(str(coins_bought[coin]['timestamp'])[:10]))
-
-        #if HODLMODE_ENABLED and (time_held >= HODLMODE_TIME_THRESHOLD):
-        #    move_coin_to_hodl(coin)
-        #    continue
-
         LastPrice = float(last_price[coin]['price'])
         sellFee = (LastPrice * (TRADING_FEE/100))
         sellFeeTotal = (coins_bought[coin]['volume'] * LastPrice) * (TRADING_FEE/100)
@@ -726,7 +695,7 @@ def sell_coins(tpsl_override = False):
             sell_reason = 'Sell All Coins'
         if tpsl_override:
             sellCoin = True
-            sell_reason = session_tpsl_override_msg
+            sell_reason = 'Session TPSL Override reached'
 
         if sellCoin:
             print(f"{txcolors.SELL_PROFIT if PriceChangeIncFees_Perc >= 0. else txcolors.SELL_LOSS}Sell: {coins_bought[coin]['volume']} of {coin} | {sell_reason} | ${float(LastPrice):g} - ${float(BuyPrice):g} | Profit: {PriceChangeIncFees_Perc:.2f}% Est: {((float(coins_bought[coin]['volume'])*float(coins_bought[coin]['bought_at']))*PriceChangeIncFees_Perc)/100:.{decimals()}f} {PAIR_WITH} (Inc Fees){txcolors.DEFAULT}")
@@ -915,10 +884,10 @@ def check_total_session_profit(coins_bought, last_price):
     if DEBUG: print(f'Session Override SL Feature: ASPP={allsession_profits_perc} STP {SESSION_TAKE_PROFIT} SSL {SESSION_STOP_LOSS}')
     
     if allsession_profits_perc >= float(SESSION_TAKE_PROFIT): 
-        session_tpsl_override_msg = "Session TP Override target of " + str(SESSION_TAKE_PROFIT) + f"% met. Sell all coins now! Session profit is {allsession_profits_perc}%"
+        session_tpsl_override_msg = "Session TP Override target of " + str(SESSION_TAKE_PROFIT) + "% met. Sell all coins now!"
         is_bot_running = False
     if allsession_profits_perc <= float(SESSION_STOP_LOSS):
-        session_tpsl_override_msg = "Session SL Override target of " + str(SESSION_STOP_LOSS) + f"% met. Sell all coins now! Session loss is {allsession_profits_perc}%"
+        session_tpsl_override_msg = "Session SL Override target of " + str(SESSION_STOP_LOSS) + "% met. Sell all coins now!"
         is_bot_running = False   
 
 def update_portfolio(orders, last_price, volume):
@@ -980,7 +949,6 @@ def update_bot_stats():
         'historicProfitIncFees_Total': historic_profit_incfees_total,
         'tradeWins': trade_wins,
         'tradeLosses': trade_losses,
-        'market_startprice': market_startprice
     }
 
     #save session info for through session portability
@@ -998,8 +966,7 @@ def remove_from_portfolio(coins_sold):
     if os.path.exists('signalsell_tickers.txt'):
         os.remove('signalsell_tickers.txt')
         for coin in coins_bought:
-            #write_signallsell(coin.removesuffix(PAIR_WITH))
-            write_signallsell(rchop(coin, PAIR_WITH))
+            write_signallsell(coin.removesuffix(PAIR_WITH))
     
 
 def write_log(logline):
@@ -1083,12 +1050,7 @@ def wrap_get_price():
                 else:
                     break
             prevcoincount = len(tickers)
-            
-            # tickers=[line.strip() for line in open(TICKERS_LIST)]
-            # Reload coins, also adding those coins that we currently hold
-            #tickers=list(set([line.strip() for line in open(TICKERS_LIST)] + [coin['symbol'].removesuffix(PAIR_WITH) for coin in coins_bought.values()]))
-            tickers=list(set([line.strip() for line in open(TICKERS_LIST)] + [rchop(coin['symbol'], PAIR_WITH) for coin in coins_bought.values()]))
-
+            tickers=[line.strip() for line in open(TICKERS_LIST)]
             if DEBUG:
                 print(f"Reloaded tickers from {TICKERS_LIST} file. Prev coin count: {prevcoincount} | New coin count: {len(tickers)}")
 
@@ -1110,10 +1072,10 @@ def create_ticker_list():
 
 if __name__ == '__main__':
 
-    #req_version = (3,9)
-    #if sys.version_info[:2] < req_version: 
-    #    print(f'This bot requires Python version 3.9 or higher/newer. You are running version {sys.version_info[:2]} - please upgrade your Python version!!')
-    #    sys.exit()
+    req_version = (3,9)
+    if sys.version_info[:2] < req_version: 
+        print(f'This bot requires Python version 3.9 or higher/newer. You are running version {sys.version_info[:2]} - please upgrade your Python version!!')
+        sys.exit()
 
     # Load arguments then parse settings
     args = parse_args()
@@ -1278,10 +1240,6 @@ if __name__ == '__main__':
             historic_profit_incfees_total = bot_stats['historicProfitIncFees_Total']
             trade_wins = bot_stats['tradeWins']
             trade_losses = bot_stats['tradeLosses']
-            try:
-                market_startprice = bot_stats['market_startprice']
-            except:
-                pass
 
             if total_capital != total_capital_config:
                 historic_profit_incfees_perc = (historic_profit_incfees_total / total_capital_config) * 100
