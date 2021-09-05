@@ -68,18 +68,25 @@ def get_24hr_price(client_api):
     neg_coin = [ item['symbol'] for item in filter(lambda x: float(x['priceChangePercent'])<-2.0, change_per)]
     pos_coin = [ item['symbol'] for item in filter(lambda x: float(x['priceChangePercent'])>=8.0, change_per)]
     #print(len(sorted_volume[-40 :]))
-    return list(set(sorted_change_per[:TOP_GAINERS]+ sorted_change_per[-TOP_GAINERS :]+sorted_volume[-10 :]+neg_coin + pos_coin))          
+    return list(set(sorted_change_per[:TOP_GAINERS]+ sorted_change_per[-TOP_GAINERS :]+sorted_volume[-10 :]+neg_coin + pos_coin)), sorted_change_per        
     #sorted_change_per = sorted(change_per, key=lambda item: item['priceChangePercent'], reverse= True)
     #return sorted_change_per[:TOP_GAINERS]+ sorted_change_per[-TOP_GAINERS :]
 
 #print (get_24hr_price(client))
-top_coins = get_24hr_price(client)
+top_coins, all_coins = get_24hr_price(client)
 #print (top_coins)
 if os.path.exists('top_gainers.txt'):
                     os.remove('top_gainers.txt')
+if os.path.exists('tickers_wo_top_movers.txt'):
+                    os.remove('tickers_wo_top_movers.txt')
+tickers_wo_top_movers = list(set(all_coins)^set(top_coins))
 
 for coin in top_coins:
     with open('top_gainers.txt', 'a+') as f:
+        f.write(coin + '\n')
+
+for coin in tickers_wo_top_movers:
+    with open('tickers_wo_top_movers.txt', 'a+') as f:
         f.write(coin + '\n')
 
 print(f'{txcolors.YELLOW}{SIGNAL_BOT_NAME} top gainers run complete')
@@ -91,9 +98,22 @@ def do_work():
                             os.remove('top_gainers.txt')
         try:
 
+            top_coins, all_coins = get_24hr_price(client)
+            #print (top_coins)
+            if os.path.exists('top_gainers.txt'):
+                                os.remove('top_gainers.txt')
+            if os.path.exists('tickers_wo_top_movers.txt'):
+                                os.remove('tickers_wo_top_movers.txt')
+            tickers_wo_top_movers = list(set(all_coins)^set(top_coins))
+
             for coin in top_coins:
                 with open('top_gainers.txt', 'a+') as f:
                     f.write(coin + '\n')
+
+            for coin in tickers_wo_top_movers:
+                with open('tickers_wo_top_movers.txt', 'a+') as f:
+                    f.write(coin + '\n')
+
 
             print(f'{txcolors.YELLOW}{SIGNAL_BOT_NAME} top gainers run complete')
         except Exception as e:
