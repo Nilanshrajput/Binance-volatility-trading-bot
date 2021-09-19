@@ -725,7 +725,7 @@ def sell_coins(tpsl_override = False):
 
         # check that the price is above the take profit and readjust SL and TP accordingly if trialing stop loss used
         #if LastPrice > TP and USE_TRAILING_STOP_LOSS and not sell_all_coins and not tpsl_override:
-        if LastPriceLessFees > TP and USE_TRAILING_STOP_LOSS and not sell_all_coins and not tpsl_override or ( PriceChange_Perc > coins_bought[coin]['take_profit'] and coins_bought[coin]['take_profit']<TAKE_PROFIT):
+        if LastPriceLessFees > TP and USE_TRAILING_STOP_LOSS and not sell_all_coins and not tpsl_override or ( PriceChange_Perc > coins_bought[coin]['take_profit'] and coins_bought[coin]['take_profit']<-0):
             # increasing TP by TRAILING_TAKE_PROFIT (essentially next time to readjust SL)
             coins_bought[coin]['ttp_enabled'] = True
             #if PriceChange_Perc >= 0.8:
@@ -1001,7 +1001,7 @@ def update_portfolio(orders, last_price, volume):
             coins_bought[coin] = {
                'symbol': orders[coin]['symbol'],
                'orderid': orders[coin]['orderId'],
-               'timestamp': orders[coin]['timestamp'],
+               'timestamp': datetime.now().timestamp(),#orders[coin]['timestamp'],
                'bought_at': orders[coin]['avgPrice'],
                'volume': orders[coin]['volume'],
                'volume_debug': volume[coin],

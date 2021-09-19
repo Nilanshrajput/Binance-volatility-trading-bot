@@ -2,12 +2,13 @@
 # used for directory handling
 import glob
 import sched, time
+import re
 
 import os
 import numpy as np
 from time import sleep
 from datetime import datetime
-
+import requests
 from binance.client import Client
 
 from helpers.parameters import parse_args, load_config
@@ -30,11 +31,11 @@ parsed_config = load_config(config_file)
 access_key, secret_key = load_correct_creds(parsed_creds)
 client = Client(access_key, secret_key)
 PAIR_WITH = parsed_config['trading_options']['PAIR_WITH']
-
-TICKERS_LIST = 'tickers.txt'
+EX_PAIRS = parsed_config['trading_options']['EX_PAIRS']
+TICKERS_LIST = 'tickers_all_USDT.txt'
 
 # Number of top coins to remove
-TOP_GAINERS = 35
+TOP_GAINERS = 25
 SIGNAL_BOT_NAME = "TOP_GAINERS"
 class txcolors:
     BUY = '\033[92m'
@@ -49,6 +50,18 @@ class txcolors:
     END = '\033[0m'
     ITALICS = '\033[3m'
 
+def create_ticker_list():
+    url = f'http://edgesforledges.com/watchlists/download/binance/fiat/usdt/all'
+    response = requests.get(url)
+
+    with open(TICKERS_LIST, 'w') as f:
+        for line in response.text.splitlines():
+            if line.endswith(PAIR_WITH):
+                currency = re.sub(r'BINANCE:(.*)' + PAIR_WITH, r'\1', line)
+                if currency not in EX_PAIRS:
+                    f.writelines(currency + '\n')
+    print(f'{txcolors.SELL_PROFIT}>> Tickers CREATED from {url} tickers!!! {TICKERS_LIST} <<')
+create_ticker_list()
 
 def get_24hr_price(client_api):
 
@@ -68,7 +81,7 @@ def get_24hr_price(client_api):
     neg_coin = [ item['symbol'] for item in filter(lambda x: float(x['priceChangePercent'])<-2.0, change_per)]
     pos_coin = [ item['symbol'] for item in filter(lambda x: float(x['priceChangePercent'])>=8.0, change_per)]
     #print(len(sorted_volume[-40 :]))
-    return list(set(sorted_change_per[:TOP_GAINERS]+ sorted_change_per[-TOP_GAINERS :]+sorted_volume[-10 :]+neg_coin + pos_coin)), sorted_change_per        
+    return list(set(sorted_change_per[:TOP_GAINERS]+ sorted_change_per[-TOP_GAINERS :]+sorted_volume[-10 :] + pos_coin + neg_coin)), sorted_change_per        
     #sorted_change_per = sorted(change_per, key=lambda item: item['priceChangePercent'], reverse= True)
     #return sorted_change_per[:TOP_GAINERS]+ sorted_change_per[-TOP_GAINERS :]
 
@@ -119,4 +132,4 @@ def do_work():
         except Exception as e:
             print(e)
 
-        time.sleep(1*900)
+        time.sleep(1*500)
