@@ -77,7 +77,7 @@ client = Client(access_key, secret_key)
 # SCANNING_PERIOD - by default, we check the price difference for each coin on Binance for the last 3 minutes,
 # you can change this value for different results.
 # This also determines how often each iteration of the code is executed.
-SCANNING_PERIOD = 4  # minutes
+SCANNING_PERIOD = 3  # minutes
 
 # TIME_SLEEP - how many seconds do you want between each price scan.
 # By default, every 12 seconds the price change will be recorded during SCANNING_PERIOD (3min)
@@ -86,12 +86,13 @@ TIME_SLEEP = 30 # seconds
 
 # If True, an updated list of coins will be generated from the site - http://edgesforledges.com/watchlists/binance.
 # If False, then the list you create in TICKERS_LIST = 'tickers.txt' will be used.
-CREATE_TICKER_LIST = False
+CREATE_TICKER_LIST = True
 
 # NUMBER_COINS_IN_LIST - Limit the number of coins that can be added to the dynamic list of volatile coins. For example,
 # if NUMBER_COINS_IN_LIST = 20,
 # then each period only 20 sorted coins will be added to the list (Above the lowest values with a minus sign).
-NUMBER_COINS_IN_LIST = 2
+NUMBER_COINS_IN_LIST = 20
+MAX_SIGNALS = 2
 
 # CV_INDEX - Coefficient of Variation. Only those coins with a COV greater than the specified value will be displayed.
 CoV_INDEX = 0.0
@@ -256,7 +257,7 @@ def do_work():
                         sort_t = 'change_price'
                     sort_list_vol_coin = sort_list_coins(list_volatility, sort_type=sort_t)
 
-                    for item in sort_list_vol_coin[:NUMBER_COINS_IN_LIST]:
+                    for item in sort_list_vol_coin[:min(MAX_SIGNALS,NUMBER_COINS_IN_LIST)]:
                         print(f'{txcolors.YELLOW}{SIGNAL_BOT_NAME}: detected a signal on{txcolors.END} '
                               f'{txcolors.YELLOW}{item["symbol"]}{txcolors.END}'
                               )
