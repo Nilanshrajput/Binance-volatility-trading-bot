@@ -19,3 +19,6 @@ __*__
 # Don't upload files
 test*.txt
 live*.txt
+*tickers*.txt
+top_gainers.txt
+SMA_DATA.txt
