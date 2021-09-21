@@ -237,6 +237,7 @@ def wait_for_price():
     coins_up = 0
     coins_down = 0
     coins_unchanged = 0
+    threshold_check = 0
 
     pause_bot()
     # get first element from the dictionary
@@ -261,21 +262,24 @@ def wait_for_price():
             max_price = max(historical_prices, key = lambda x: -1 if x is None else float(x[coin]['price']))
 
             threshold_check = (-1.0 if min_price[coin]['time'] > max_price[coin]['time'] else 1.0) * (float(max_price[coin]['price']) - float(min_price[coin]['price'])) / float(min_price[coin]['price']) * 100
-
+            time_diff = (min_price[coin]['time'] - max_price[coin]['time']).total_seconds()/60
             #if coin == "BTCUSDT" or coin == "ETHUSDT":
                 #print(f"coin: {coin} min_price: {min_price[coin]['price']} max_price: {max_price[coin]['price']}")
         except KeyError:
+            threshold_check=0
+            time_diff = 0
             if DEBUG:
                 print(f"wait_for_price(): Got a KeyError for {coin}. If this coin was just added to your tickers file, no need to worry about this KeyError.")
             pass
-
+        
+        
         # FOR NEGATIVE PRICE CHECKING
         if threshold_check>0 and CHANGE_IN_PRICE<0: threshold_check=0
 
         # each coin with higher gains than our CHANGE_IN_PRICE is added to the volatile_coins dict if less than TRADE_SLOTS is not reached.
         # FOR NEGATIVE PRICE CHECKING
         #if abs(threshold_check) > abs(CHANGE_IN_PRICE):
-        if abs(CHANGE_IN_PRICE) <=abs(threshold_check) <= abs(CHANGE_IN_PRICE_LIMIT):
+        if abs(CHANGE_IN_PRICE) <=abs(threshold_check) <= abs(CHANGE_IN_PRICE_LIMIT) and time_diff>=TIME_DIFFERENCE/2:
             coins_up +=1
 
             if coin not in volatility_cooloff:
@@ -289,8 +293,12 @@ def wait_for_price():
 
                 if len(coins_bought) + len(volatile_coins) < TRADE_SLOTS or TRADE_SLOTS == 0:
                     volatile_coins[coin] = round(threshold_check, 3)
-                    print(f'{coin} has gained {volatile_coins[coin]}% within the last {TIME_DIFFERENCE} minutes, purchasing ${TRADE_TOTAL} {PAIR_WITH} of {coin}!')
-
+                    signal_msg = f'{coin} has gained {volatile_coins[coin]}% within the last {TIME_DIFFERENCE} minutes, purchasing ${TRADE_TOTAL} {PAIR_WITH} of {coin}!'
+                    print(signal_msg)
+                    log_signal = f"{coin} min time {min_price[coin]['time']} max_time {max_price[coin]['time']} time_diff {time_diff}"
+                    with open('price_change_signals.txt', 'a+') as f:
+                        f.write(signal_msg + '\n')
+                        f.write(log_signal+ '\n')
                 else:
                     print(f'{txcolors.WARNING}{coin} has gained {round(threshold_check, 3)}% within the last {TIME_DIFFERENCE} minutes, but you are using all available trade slots!{txcolors.DEFAULT}')
             #else:
@@ -686,7 +694,7 @@ def sell_coins(tpsl_override = False):
 
     for coin in list(coins_bought):
         
-        #time_held = timedelta(seconds=datetime.now().timestamp()-coins_bought[coin]['timestamp'])
+        #time_held = timedelta(seconds=time_held)
         time_held = timedelta(seconds=datetime.now().timestamp()-int(str(coins_bought[coin]['timestamp'])[:10]))
 
         #if HODLMODE_ENABLED and (time_held >= HODLMODE_TIME_THRESHOLD):
@@ -710,7 +718,7 @@ def sell_coins(tpsl_override = False):
         PriceChangeIncFees_Perc = float(((LastPrice-sellFee) - (BuyPrice+buyFee)) / (BuyPrice+buyFee) * 100)
         #PriceChangeIncFees_Unit = float((LastPrice+sellFee) - (BuyPrice+buyFee))
         PriceChangeIncFees_Unit = float((LastPrice-sellFee) - (BuyPrice+buyFee))
-        time_ch_factor = int(((datetime.now().timestamp() - coins_bought[coin]['timestamp'])/ (TP_CHANGE_TIME*60)))
+        time_ch_factor = int(((time_held.total_seconds())/ (TP_CHANGE_TIME*60)))
         
         #print(time_ch_factor)
         if time_ch_factor >= 1 and coins_bought[coin]['take_profit']>=MINIMUM_SP and  coins_bought[coin]['ttp_enabled'] == False:
@@ -750,8 +758,8 @@ def sell_coins(tpsl_override = False):
                 coins_bought[coin]['stop_loss'] = coins_bought[coin]['take_profit'] * .25
                 
             #if DEBUG: print(f"{coin} TP reached, adjusting TP {coins_bought[coin]['take_profit']:.{decimals()}f} and SL {coins_bought[coin]['stop_loss']:.{decimals()}f} accordingly to lock-in profit")
-            my_table.add_row([f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{coin + ' TP up!'}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{coins_bought[coin]['volume']:.6f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{BuyPrice:.6f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{LastPrice:.6f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{coins_bought[coin]['take_profit']:.4f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{coins_bought[coin]['stop_loss']:.4f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{PriceChangeIncFees_Perc:.4f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{((float(coins_bought[coin]['volume'])*float(coins_bought[coin]['bought_at']))*PriceChangeIncFees_Perc)/100:.6f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{str(timedelta(seconds=datetime.now().timestamp()-coins_bought[coin]['timestamp'])).split('.')[0]}{txcolors.DEFAULT}"])
-            
+            my_table.add_row([f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{coin + ' TP up!'}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{coins_bought[coin]['volume']:.6f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{BuyPrice:.6f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{LastPrice:.6f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{coins_bought[coin]['take_profit']:.4f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{coins_bought[coin]['stop_loss']:.4f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{PriceChangeIncFees_Perc:.4f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{((float(coins_bought[coin]['volume'])*float(coins_bought[coin]['bought_at']))*PriceChangeIncFees_Perc)/100:.6f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{str(time_held).split('.')[0]}{txcolors.DEFAULT}"])
+            if len(my_table._rows) > 0: print_table(my_table)
             continue
 
         # check that the price is below the stop loss or above take profit (if trailing stop loss not used) and sell if this is the case
@@ -877,7 +885,7 @@ def sell_coins(tpsl_override = False):
         if hsp_head == 1:
             if len(coins_bought) > 0:
                 #print(f"Holding: {coins_bought[coin]['volume']} of {coin} | {LastPrice} - {BuyPrice} | Profit: {txcolors.SELL_PROFIT if PriceChangeIncFees_Perc >= 0. else txcolors.SELL_LOSS}{PriceChangeIncFees_Perc:.4f}% Est: ({((float(coins_bought[coin]['volume'])*float(coins_bought[coin]['bought_at']))*PriceChangeIncFees_Perc)/100:.{decimals()}f} {PAIR_WITH}){txcolors.DEFAULT}")
-                my_table.add_row([f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{coin}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{coins_bought[coin]['volume']:.6f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{BuyPrice:.6f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{LastPrice:.6f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{coins_bought[coin]['take_profit']:.4f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{coins_bought[coin]['stop_loss']:.4f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{PriceChangeIncFees_Perc:.4f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{((float(coins_bought[coin]['volume'])*float(coins_bought[coin]['bought_at']))*PriceChangeIncFees_Perc)/100:.6f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{str(timedelta(seconds=datetime.now().timestamp()-coins_bought[coin]['timestamp'])).split('.')[0]}{txcolors.DEFAULT}"])
+                my_table.add_row([f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{coin}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{coins_bought[coin]['volume']:.6f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{BuyPrice:.6f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{LastPrice:.6f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{coins_bought[coin]['take_profit']:.4f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{coins_bought[coin]['stop_loss']:.4f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{PriceChangeIncFees_Perc:.4f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{((float(coins_bought[coin]['volume'])*float(coins_bought[coin]['bought_at']))*PriceChangeIncFees_Perc)/100:.6f}{txcolors.DEFAULT}", f"{txcolors.SELL_PROFIT if ProfitAfterFees >= 0. else txcolors.SELL_LOSS}{str(time_held).split('.')[0]}{txcolors.DEFAULT}"])
                 
     my_table.sortby = 'Change %'
     #my_table.reversesort = True
@@ -1001,7 +1009,7 @@ def update_portfolio(orders, last_price, volume):
             coins_bought[coin] = {
                'symbol': orders[coin]['symbol'],
                'orderid': orders[coin]['orderId'],
-               'timestamp': datetime.now().timestamp(),#orders[coin]['timestamp'],
+               'timestamp': orders[coin]['timestamp'],
                'bought_at': orders[coin]['avgPrice'],
                'volume': orders[coin]['volume'],
                'volume_debug': volume[coin],
@@ -1142,6 +1150,7 @@ def wrap_get_price():
             while True:
                 if not os.path.exists(TICKERS_LIST):
                     print(f"Autoreload tickers cannot find {TICKERS_LIST} file. Will retry in 1 second.")
+                    break
                     time.sleep(1)
                 else:
                     break
@@ -1150,7 +1159,10 @@ def wrap_get_price():
             # tickers=[line.strip() for line in open(TICKERS_LIST)]
             # Reload coins, also adding those coins that we currently hold
             #tickers=list(set([line.strip() for line in open(TICKERS_LIST)] + [coin['symbol'].removesuffix(PAIR_WITH) for coin in coins_bought.values()]))
-            tickers=list(set([line.strip() for line in open(TICKERS_LIST)] + [rchop(coin['symbol'], PAIR_WITH) for coin in coins_bought.values()]))
+            if not os.path.exists(TICKERS_LIST):
+                tickers=list(set([rchop(coin['symbol'], PAIR_WITH) for coin in coins_bought.values()]))
+            else:
+                tickers=list(set([line.strip() for line in open(TICKERS_LIST)] + [rchop(coin['symbol'], PAIR_WITH) for coin in coins_bought.values()]))
 
             if DEBUG:
                 print(f"Reloaded tickers from {TICKERS_LIST} file. Prev coin count: {prevcoincount} | New coin count: {len(tickers)}")
