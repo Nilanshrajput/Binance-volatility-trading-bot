@@ -642,3 +642,5 @@ COCOSUSDT has gained -1.606% within the last 3 minutes, purchasing $15 USDT of C
 COCOSUSDT min time 2021-10-12 19:32:36.939136 max_time 2021-10-12 19:30:57.414511 time_diff 1.65874375
 LPTUSDT has gained -1.958% within the last 3 minutes, purchasing $15 USDT of LPTUSDT!
 LPTUSDT min time 2021-10-12 19:32:06.316876 max_time 2021-10-12 19:30:18.434419 time_diff 1.79804095
+LPTUSDT has gained -1.552% within the last 3 minutes, purchasing $15 USDT of LPTUSDT!
+LPTUSDT min time 2021-10-12 19:37:00.803078 max_time 2021-10-12 19:34:09.726263 time_diff 2.8512802500000003

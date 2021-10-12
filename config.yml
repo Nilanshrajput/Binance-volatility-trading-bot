@@ -88,7 +88,7 @@ trading_options:
   TRAILING_STOP_LOSS: .6
   TRAILING_TAKE_PROFIT: .2
 
-
+# Ignore these these are WIP
   USE_TRAILING_BUY : False
   BUY_TRAIL_TIME : 15
   TRAILING_BUY_PER : -0.12
@@ -127,6 +127,7 @@ trading_options:
     #- os_pausebot_MAv2
     - top_gainers
     #- VolScan
+    # Ignore this these are WIP
     #- TrailBuy
     
     
