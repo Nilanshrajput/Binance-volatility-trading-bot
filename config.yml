@@ -53,7 +53,7 @@ trading_options:
   RECHECK_INTERVAL: 100
   # the difference in % between the first and second checks for the price.
   CHANGE_IN_PRICE: -1.5
-  CHANGE_IN_PRICE_LIMIT: -3
+  CHANGE_IN_PRICE_LIMIT: -3  # coins above the limit won't be considered as i am unsure they might fall more personel setting
   # define in % when to sell a coin that's not making a profit.
   STOP_LOSS: 100
 

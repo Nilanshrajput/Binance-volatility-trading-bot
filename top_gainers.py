@@ -1,4 +1,20 @@
+"""
+This will update tickers list to remove top gainers and loosers top  (top 25) in original version
+set this value withb this parameter TOP_GAINERS = 25
+currently also hard coded to remove coins with greater that 8% gain last  24 hours or dropped below -2% in 24 hr period
+these are lines where you can set the values according to you need
+neg_coin = [ item['symbol'] for item in filter(lambda x: float(x['priceChangePercent'])<-2.0, change_per)]
+pos_coin = [ item['symbol'] for item in filter(lambda x: float(x['priceChangePercent'])>=8.0, change_per)]
 
+Also remove bottom 10 coins with respect to volume in 24 hours
+
+these are removed because price change is very vaoltile and coins at top can fall down very easily, or coins at bottom could drop down even further.
+this is suppsed to be used to trade lot of coins very fast so we dont a hold these risky coins.
+
+
+
+
+"""
 # used for directory handling
 import glob
 import sched, time
