@@ -288,3 +288,357 @@ FTMUSDT has gained -1.938% within the last 4 minutes, purchasing $100 USDT of FT
 FTMUSDT min time 2021-09-21 18:29:25.864060 max_time 2021-09-21 18:24:43.544291 time_diff 4.705329483333333
 BZRXUSDT has gained -1.937% within the last 4 minutes, purchasing $100 USDT of BZRXUSDT!
 BZRXUSDT min time 2021-09-21 18:30:31.389330 max_time 2021-09-21 18:27:43.621500 time_diff 2.7961305
+GXSUSDT has gained -4.199% within the last 4 minutes, purchasing $100 USDT of GXSUSDT!
+GXSUSDT min time 2021-09-22 20:47:09.546460 max_time 2021-09-22 20:43:16.524176 time_diff 3.8837047333333334
+KSMUSDT has gained -1.521% within the last 4 minutes, purchasing $100 USDT of KSMUSDT!
+KSMUSDT min time 2021-09-22 20:48:49.107037 max_time 2021-09-22 20:44:15.015347 time_diff 4.568194833333334
+INJUSDT has gained -3.801% within the last 4 minutes, purchasing $5 USDT of INJUSDT!
+INJUSDT min time 2021-09-22 20:58:15.252848 max_time 2021-09-22 20:55:45.340931 time_diff 2.49853195
+RAMPUSDT has gained -1.524% within the last 4 minutes, purchasing $5 USDT of RAMPUSDT!
+RAMPUSDT min time 2021-09-22 21:01:46.275431 max_time 2021-09-22 20:59:37.344239 time_diff 2.1488532
+TRBUSDT has gained -2.102% within the last 4 minutes, purchasing $15 USDT of TRBUSDT!
+TRBUSDT min time 2021-09-23 15:53:30.478973 max_time 2021-09-23 15:51:30.080430 time_diff 2.0066423833333333
+NANOUSDT has gained -1.795% within the last 4 minutes, purchasing $15 USDT of NANOUSDT!
+NANOUSDT min time 2021-09-23 15:54:22.558693 max_time 2021-09-23 15:51:30.064080 time_diff 2.8749102166666662
+C98USDT has gained -1.806% within the last 4 minutes, purchasing $15 USDT of C98USDT!
+C98USDT min time 2021-09-23 15:54:22.587772 max_time 2021-09-23 15:51:39.629796 time_diff 2.715966266666667
+DYDXUSDT has gained -1.725% within the last 4 minutes, purchasing $15 USDT of DYDXUSDT!
+DYDXUSDT min time 2021-09-23 15:54:45.397855 max_time 2021-09-23 15:51:46.678233 time_diff 2.9786603666666664
+ANTUSDT has gained -1.89% within the last 4 minutes, purchasing $15 USDT of ANTUSDT!
+ANTUSDT min time 2021-09-23 15:55:17.760035 max_time 2021-09-23 15:51:30.079142 time_diff 3.79468155
+ORNUSDT has gained -1.703% within the last 4 minutes, purchasing $15 USDT of ORNUSDT!
+ORNUSDT min time 2021-09-23 15:59:42.874018 max_time 2021-09-23 15:54:51.049623 time_diff 4.863739916666666
+MINAUSDT has gained -1.842% within the last 4 minutes, purchasing $15 USDT of MINAUSDT!
+MINAUSDT min time 2021-09-23 16:00:31.787717 max_time 2021-09-23 15:57:07.431089 time_diff 3.4059438
+ACMUSDT has gained -1.7% within the last 4 minutes, purchasing $15 USDT of ACMUSDT!
+ACMUSDT min time 2021-09-23 16:07:36.937103 max_time 2021-09-23 16:04:52.083013 time_diff 2.747568166666667
+AVAUSDT has gained -2.239% within the last 4 minutes, purchasing $15 USDT of AVAUSDT!
+AVAUSDT min time 2021-09-23 16:08:26.745942 max_time 2021-09-23 16:03:37.325511 time_diff 4.8236738500000005
+DNTUSDT has gained -1.956% within the last 4 minutes, purchasing $15 USDT of DNTUSDT!
+DNTUSDT min time 2021-09-23 16:14:27.895698 max_time 2021-09-23 16:11:36.241945 time_diff 2.8608958833333333
+BAKEUSDT has gained -2.162% within the last 4 minutes, purchasing $15 USDT of BAKEUSDT!
+BAKEUSDT min time 2021-09-23 16:20:17.281607 max_time 2021-09-23 16:17:12.837512 time_diff 3.0740682500000003
+SFPUSDT has gained -1.768% within the last 4 minutes, purchasing $15 USDT of SFPUSDT!
+SFPUSDT min time 2021-09-23 16:37:11.177502 max_time 2021-09-23 16:32:52.311995 time_diff 4.3144251166666665
+AVAUSDT has gained -2.893% within the last 4 minutes, purchasing $15 USDT of AVAUSDT!
+AVAUSDT min time 2021-09-23 16:37:17.619658 max_time 2021-09-23 16:34:22.679748 time_diff 2.9156651666666664
+CKBUSDT has gained -1.729% within the last 4 minutes, purchasing $15 USDT of CKBUSDT!
+CKBUSDT min time 2021-09-23 16:38:06.986852 max_time 2021-09-23 16:33:22.003541 time_diff 4.74972185
+DREPUSDT has gained -1.729% within the last 4 minutes, purchasing $15 USDT of DREPUSDT!
+DREPUSDT min time 2021-09-23 16:39:53.559518 max_time 2021-09-23 16:36:35.122076 time_diff 3.3072907000000002
+NANOUSDT has gained -4.044% within the last 4 minutes, purchasing $15 USDT of NANOUSDT!
+NANOUSDT min time 2021-09-23 16:39:53.547624 max_time 2021-09-23 16:37:26.888424 time_diff 2.44432
+CFXUSDT has gained -2.349% within the last 4 minutes, purchasing $15 USDT of CFXUSDT!
+CFXUSDT min time 2021-09-23 16:48:21.399670 max_time 2021-09-23 16:46:11.520076 time_diff 2.1646598999999997
+HARDUSDT has gained -1.814% within the last 4 minutes, purchasing $15 USDT of HARDUSDT!
+HARDUSDT min time 2021-09-23 16:50:07.294965 max_time 2021-09-23 16:45:46.049658 time_diff 4.354088450000001
+KEYUSDT has gained -2.414% within the last 4 minutes, purchasing $15 USDT of KEYUSDT!
+KEYUSDT min time 2021-09-23 16:50:55.219011 max_time 2021-09-23 16:48:15.345441 time_diff 2.6645595
+KMDUSDT has gained -2.386% within the last 4 minutes, purchasing $15 USDT of KMDUSDT!
+KMDUSDT min time 2021-09-23 16:52:00.628060 max_time 2021-09-23 16:49:53.550462 time_diff 2.1179599666666666
+KMDUSDT has gained -2.319% within the last 4 minutes, purchasing $15 USDT of KMDUSDT!
+KMDUSDT min time 2021-09-23 16:53:49.135545 max_time 2021-09-23 16:51:46.856590 time_diff 2.037982583333333
+KEYUSDT has gained -2.998% within the last 4 minutes, purchasing $15 USDT of KEYUSDT!
+KEYUSDT min time 2021-09-23 16:58:54.757361 max_time 2021-09-23 16:55:42.355577 time_diff 3.2066964
+BZRXUSDT has gained -1.853% within the last 4 minutes, purchasing $15 USDT of BZRXUSDT!
+BZRXUSDT min time 2021-09-23 17:35:17.210483 max_time 2021-09-23 17:32:29.223828 time_diff 2.7997775833333334
+TRUUSDT has gained -3.021% within the last 4 minutes, purchasing $15 USDT of TRUUSDT!
+TRUUSDT min time 2021-09-23 17:38:38.609440 max_time 2021-09-23 17:34:00.029159 time_diff 4.643004683333333
+HARDUSDT has gained -3.071% within the last 4 minutes, purchasing $15 USDT of HARDUSDT!
+HARDUSDT min time 2021-09-23 18:09:47.515077 max_time 2021-09-23 18:07:39.106623 time_diff 2.1401409
+ACMUSDT has gained -2.699% within the last 4 minutes, purchasing $15 USDT of ACMUSDT!
+ACMUSDT min time 2021-09-23 18:20:45.634973 max_time 2021-09-23 18:17:50.609801 time_diff 2.9170862
+IDEXUSDT has gained -1.803% within the last 4 minutes, purchasing $15 USDT of IDEXUSDT!
+IDEXUSDT min time 2021-09-23 18:24:40.427360 max_time 2021-09-23 18:21:05.110907 time_diff 3.58860755
+HARDUSDT has gained -3.194% within the last 4 minutes, purchasing $15 USDT of HARDUSDT!
+HARDUSDT min time 2021-09-23 18:25:11.258392 max_time 2021-09-23 18:22:00.225364 time_diff 3.1838838
+AVAUSDT has gained -3.139% within the last 4 minutes, purchasing $15 USDT of AVAUSDT!
+AVAUSDT min time 2021-09-23 18:26:13.703551 max_time 2021-09-23 18:24:10.192040 time_diff 2.0585251833333333
+HARDUSDT has gained -1.798% within the last 4 minutes, purchasing $15 USDT of HARDUSDT!
+HARDUSDT min time 2021-09-23 18:41:32.035105 max_time 2021-09-23 18:37:35.336617 time_diff 3.9449748
+AVAUSDT has gained -2.086% within the last 4 minutes, purchasing $15 USDT of AVAUSDT!
+AVAUSDT min time 2021-09-23 18:53:51.175974 max_time 2021-09-23 18:50:30.685814 time_diff 3.3415026666666665
+TROYUSDT has gained -3.091% within the last 6 minutes, purchasing $15 USDT of TROYUSDT!
+TROYUSDT min time 2021-09-23 20:05:19.302718 max_time 2021-09-23 19:59:38.228631 time_diff 5.684568116666667
+DATAUSDT has gained -5.305% within the last 6 minutes, purchasing $15 USDT of DATAUSDT!
+DATAUSDT min time 2021-09-23 20:08:15.759228 max_time 2021-09-23 20:04:03.906832 time_diff 4.197539933333333
+PSGUSDT has gained -3.009% within the last 6 minutes, purchasing $15 USDT of PSGUSDT!
+PSGUSDT min time 2021-09-23 20:11:34.101188 max_time 2021-09-23 20:06:14.676630 time_diff 5.3237426333333335
+BADGERUSDT has gained -3.794% within the last 6 minutes, purchasing $15 USDT of BADGERUSDT!
+BADGERUSDT min time 2021-09-23 20:26:32.848597 max_time 2021-09-23 20:21:16.547139 time_diff 5.271690966666667
+FORTHUSDT has gained -3.495% within the last 6 minutes, purchasing $15 USDT of FORTHUSDT!
+FORTHUSDT min time 2021-09-23 20:33:27.992568 max_time 2021-09-23 20:28:57.322232 time_diff 4.511172266666667
+FORTHUSDT has gained -3.495% within the last 6 minutes, purchasing $15 USDT of FORTHUSDT!
+FORTHUSDT min time 2021-09-23 20:40:48.495649 max_time 2021-09-23 20:37:26.497971 time_diff 3.366627966666667
+DATAUSDT has gained -3.277% within the last 6 minutes, purchasing $15 USDT of DATAUSDT!
+DATAUSDT min time 2021-09-23 21:19:58.861019 max_time 2021-09-23 21:15:43.731769 time_diff 4.252154166666667
+DEGOUSDT has gained -3.605% within the last 6 minutes, purchasing $15 USDT of DEGOUSDT!
+DEGOUSDT min time 2021-09-23 21:55:41.587191 max_time 2021-09-23 21:52:07.153894 time_diff 3.5738882833333334
+HARDUSDT has gained -3.19% within the last 6 minutes, purchasing $15 USDT of HARDUSDT!
+HARDUSDT min time 2021-09-23 22:18:15.899224 max_time 2021-09-23 22:13:18.867123 time_diff 4.950535016666667
+UTKUSDT has gained -3.975% within the last 6 minutes, purchasing $15 USDT of UTKUSDT!
+UTKUSDT min time 2021-09-23 23:11:24.757300 max_time 2021-09-23 23:08:05.756639 time_diff 3.3166776833333333
+NANOUSDT has gained -4.554% within the last 6 minutes, purchasing $15 USDT of NANOUSDT!
+NANOUSDT min time 2021-09-23 23:35:24.575133 max_time 2021-09-23 23:31:45.925443 time_diff 3.6441615
+GTOUSDT has gained -3.055% within the last 6 minutes, purchasing $15 USDT of GTOUSDT!
+GTOUSDT min time 2021-09-23 23:39:34.785262 max_time 2021-09-23 23:32:37.568963 time_diff 6.953604983333333
+NANOUSDT has gained -3.057% within the last 6 minutes, purchasing $15 USDT of NANOUSDT!
+NANOUSDT min time 2021-09-23 23:48:16.110107 max_time 2021-09-23 23:41:21.907053 time_diff 6.903384233333333
+NANOUSDT has gained -3.209% within the last 6 minutes, purchasing $15 USDT of NANOUSDT!
+NANOUSDT min time 2021-09-25 18:11:23.830222 max_time 2021-09-25 18:07:33.603639 time_diff 3.837109716666667
+AVAUSDT has gained -1.542% within the last 3 minutes, purchasing $15 USDT of AVAUSDT!
+AVAUSDT min time 2021-09-25 18:22:06.381559 max_time 2021-09-25 18:20:29.891229 time_diff 1.6081721666666666
+HARDUSDT has gained -1.629% within the last 3 minutes, purchasing $15 USDT of HARDUSDT!
+HARDUSDT min time 2021-10-10 15:51:22.421005 max_time 2021-10-10 15:49:33.652105 time_diff 1.812815
+CFXUSDT has gained -1.558% within the last 3 minutes, purchasing $15 USDT of CFXUSDT!
+CFXUSDT min time 2021-10-10 16:04:28.649863 max_time 2021-10-10 16:02:47.318605 time_diff 1.6888543
+LTOUSDT has gained -1.835% within the last 3 minutes, purchasing $15 USDT of LTOUSDT!
+LTOUSDT min time 2021-10-10 16:05:36.503576 max_time 2021-10-10 16:02:18.302366 time_diff 3.3033535
+LTOUSDT has gained -1.538% within the last 3 minutes, purchasing $15 USDT of LTOUSDT!
+LTOUSDT min time 2021-10-10 16:08:37.003885 max_time 2021-10-10 16:05:24.038907 time_diff 3.216082966666667
+GXSUSDT has gained -1.619% within the last 3 minutes, purchasing $15 USDT of GXSUSDT!
+GXSUSDT min time 2021-10-10 16:22:54.475091 max_time 2021-10-10 16:20:08.372697 time_diff 2.7683732333333335
+CELRUSDT has gained -1.51% within the last 3 minutes, purchasing $15 USDT of CELRUSDT!
+CELRUSDT min time 2021-10-10 16:37:30.306992 max_time 2021-10-10 16:33:59.870298 time_diff 3.507278233333333
+CTSIUSDT has gained -2.155% within the last 3 minutes, purchasing $15 USDT of CTSIUSDT!
+CTSIUSDT min time 2021-10-10 17:01:24.867003 max_time 2021-10-10 16:59:53.496677 time_diff 1.5228387666666667
+JUVUSDT has gained -1.978% within the last 3 minutes, purchasing $15 USDT of JUVUSDT!
+JUVUSDT min time 2021-10-10 17:09:58.506706 max_time 2021-10-10 17:06:58.016972 time_diff 3.008162233333333
+DATAUSDT has gained -1.743% within the last 3 minutes, purchasing $15 USDT of DATAUSDT!
+DATAUSDT min time 2021-10-10 17:41:41.614506 max_time 2021-10-10 17:38:11.687854 time_diff 3.498777533333333
+REQUSDT has gained -1.745% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-10 17:47:18.287121 max_time 2021-10-10 17:43:49.207012 time_diff 3.484668483333333
+WINGUSDT has gained -1.589% within the last 3 minutes, purchasing $15 USDT of WINGUSDT!
+WINGUSDT min time 2021-10-10 18:25:47.827817 max_time 2021-10-10 18:22:58.422648 time_diff 2.8234194833333333
+OMUSDT has gained -1.537% within the last 3 minutes, purchasing $15 USDT of OMUSDT!
+OMUSDT min time 2021-10-10 18:27:35.158861 max_time 2021-10-10 18:24:07.314648 time_diff 3.464070216666667
+VITEUSDT has gained -1.801% within the last 3 minutes, purchasing $15 USDT of VITEUSDT!
+VITEUSDT min time 2021-10-10 18:40:48.024726 max_time 2021-10-10 18:37:16.114029 time_diff 3.53184495
+LPTUSDT has gained -2.956% within the last 3 minutes, purchasing $15 USDT of LPTUSDT!
+LPTUSDT min time 2021-10-10 18:55:56.235779 max_time 2021-10-10 18:53:21.201703 time_diff 2.5839012666666665
+SHIBUSDT has gained -1.829% within the last 3 minutes, purchasing $15 USDT of SHIBUSDT!
+SHIBUSDT min time 2021-10-10 19:19:23.650052 max_time 2021-10-10 19:15:52.577414 time_diff 3.5178773000000003
+HARDUSDT has gained -1.588% within the last 3 minutes, purchasing $15 USDT of HARDUSDT!
+HARDUSDT min time 2021-10-10 19:42:37.612957 max_time 2021-10-10 19:39:56.398621 time_diff 2.6869056000000002
+DUSKUSDT has gained -2.066% within the last 3 minutes, purchasing $15 USDT of DUSKUSDT!
+DUSKUSDT min time 2021-10-10 20:20:47.035858 max_time 2021-10-10 20:17:17.582444 time_diff 3.4908902333333334
+TROYUSDT has gained -2.564% within the last 3 minutes, purchasing $15 USDT of TROYUSDT!
+TROYUSDT min time 2021-10-10 21:38:38.770499 max_time 2021-10-10 21:37:06.615018 time_diff 1.5359246833333333
+MASKUSDT has gained -1.57% within the last 3 minutes, purchasing $15 USDT of MASKUSDT!
+MASKUSDT min time 2021-10-10 21:56:06.633489 max_time 2021-10-10 21:52:45.471625 time_diff 3.3526977333333337
+MASKUSDT has gained -1.886% within the last 3 minutes, purchasing $15 USDT of MASKUSDT!
+MASKUSDT min time 2021-10-10 21:59:15.248797 max_time 2021-10-10 21:55:54.690761 time_diff 3.342633933333333
+ARUSDT has gained -1.521% within the last 3 minutes, purchasing $15 USDT of ARUSDT!
+ARUSDT min time 2021-10-10 22:01:42.442371 max_time 2021-10-10 21:58:21.084244 time_diff 3.355968783333333
+MASKUSDT has gained -1.933% within the last 3 minutes, purchasing $15 USDT of MASKUSDT!
+MASKUSDT min time 2021-10-10 22:02:00.439355 max_time 2021-10-10 21:58:53.303475 time_diff 3.1189313333333333
+OXTUSDT has gained -1.954% within the last 3 minutes, purchasing $15 USDT of OXTUSDT!
+OXTUSDT min time 2021-10-10 22:12:00.129119 max_time 2021-10-10 22:09:29.209351 time_diff 2.5153294666666666
+OXTUSDT has gained -1.74% within the last 3 minutes, purchasing $15 USDT of OXTUSDT!
+OXTUSDT min time 2021-10-10 22:16:15.519542 max_time 2021-10-10 22:12:47.094046 time_diff 3.4737582666666666
+OXTUSDT has gained -1.761% within the last 3 minutes, purchasing $15 USDT of OXTUSDT!
+OXTUSDT min time 2021-10-10 22:22:24.170478 max_time 2021-10-10 22:20:40.832222 time_diff 1.7223042666666666
+NANOUSDT has gained -1.553% within the last 3 minutes, purchasing $15 USDT of NANOUSDT!
+NANOUSDT min time 2021-10-10 22:27:13.026133 max_time 2021-10-10 22:23:49.307214 time_diff 3.3953153166666667
+OXTUSDT has gained -1.543% within the last 3 minutes, purchasing $15 USDT of OXTUSDT!
+OXTUSDT min time 2021-10-10 22:28:09.460075 max_time 2021-10-10 22:24:51.139597 time_diff 3.3053413000000003
+STPTUSDT has gained -1.745% within the last 3 minutes, purchasing $15 USDT of STPTUSDT!
+STPTUSDT min time 2021-10-10 22:27:43.082747 max_time 2021-10-10 22:25:37.698486 time_diff 2.0897376833333334
+OXTUSDT has gained -1.987% within the last 3 minutes, purchasing $15 USDT of OXTUSDT!
+OXTUSDT min time 2021-10-10 22:29:48.871605 max_time 2021-10-10 22:27:43.090260 time_diff 2.09635575
+OXTUSDT has gained -1.605% within the last 3 minutes, purchasing $15 USDT of OXTUSDT!
+OXTUSDT min time 2021-10-10 22:34:38.615488 max_time 2021-10-10 22:32:55.855088 time_diff 1.7126733333333335
+STPTUSDT has gained -1.58% within the last 3 minutes, purchasing $15 USDT of STPTUSDT!
+STPTUSDT min time 2021-10-10 22:37:01.731960 max_time 2021-10-10 22:35:22.610169 time_diff 1.6520298500000001
+CELOUSDT has gained -1.562% within the last 3 minutes, purchasing $15 USDT of CELOUSDT!
+CELOUSDT min time 2021-10-10 22:41:24.548041 max_time 2021-10-10 22:39:35.603189 time_diff 1.8157475333333333
+CTSIUSDT has gained -1.544% within the last 3 minutes, purchasing $15 USDT of CTSIUSDT!
+CTSIUSDT min time 2021-10-10 22:46:47.705842 max_time 2021-10-10 22:44:48.463643 time_diff 1.9873699833333334
+OXTUSDT has gained -1.656% within the last 3 minutes, purchasing $15 USDT of OXTUSDT!
+OXTUSDT min time 2021-10-10 22:51:29.390068 max_time 2021-10-10 22:48:25.788965 time_diff 3.0600183833333334
+XRPUSDT has gained -1.997% within the last 3 minutes, purchasing $15 USDT of XRPUSDT!
+XRPUSDT min time 2021-10-11 17:51:18.966835 max_time 2021-10-10 22:57:17.224345 time_diff 1134.0290415000002
+NULSUSDT has gained -1.614% within the last 3 minutes, purchasing $15 USDT of NULSUSDT!
+NULSUSDT min time 2021-10-11 17:51:18.967622 max_time 2021-10-10 22:58:22.437101 time_diff 1132.9421753499998
+CTSIUSDT has gained -2.974% within the last 3 minutes, purchasing $15 USDT of CTSIUSDT!
+CTSIUSDT min time 2021-10-11 17:51:45.544849 max_time 2021-10-10 22:59:54.399058 time_diff 1131.8524298500001
+DASHUSDT has gained -1.992% within the last 3 minutes, purchasing $15 USDT of DASHUSDT!
+DASHUSDT min time 2021-10-11 17:51:18.969046 max_time 2021-10-10 23:00:16.414740 time_diff 1131.0425717666667
+KNCUSDT has gained -1.527% within the last 3 minutes, purchasing $15 USDT of KNCUSDT!
+KNCUSDT min time 2021-10-11 17:51:18.972857 max_time 2021-10-10 23:00:16.423585 time_diff 1131.0424878666668
+XVGUSDT has gained -1.805% within the last 3 minutes, purchasing $15 USDT of XVGUSDT!
+XVGUSDT min time 2021-10-11 19:13:25.314350 max_time 2021-10-11 19:11:14.508850 time_diff 2.1800916666666668
+XVGUSDT has gained -2.033% within the last 3 minutes, purchasing $15 USDT of XVGUSDT!
+XVGUSDT min time 2021-10-11 19:24:31.693779 max_time 2021-10-11 19:21:09.356938 time_diff 3.3722806833333334
+YGGUSDT has gained -1.709% within the last 3 minutes, purchasing $15 USDT of YGGUSDT!
+YGGUSDT min time 2021-10-11 19:29:18.223236 max_time 2021-10-11 19:27:34.636602 time_diff 1.7264439
+ERNUSDT has gained -1.627% within the last 3 minutes, purchasing $15 USDT of ERNUSDT!
+ERNUSDT min time 2021-10-11 19:45:30.222461 max_time 2021-10-11 19:43:10.471886 time_diff 2.32917625
+FORUSDT has gained -1.576% within the last 3 minutes, purchasing $15 USDT of FORUSDT!
+FORUSDT min time 2021-10-11 19:46:54.719678 max_time 2021-10-11 19:44:47.765895 time_diff 2.1158963833333333
+DYDXUSDT has gained -1.512% within the last 3 minutes, purchasing $15 USDT of DYDXUSDT!
+DYDXUSDT min time 2021-10-11 19:48:34.489403 max_time 2021-10-11 19:46:16.759289 time_diff 2.2955018999999997
+CVPUSDT has gained -1.507% within the last 3 minutes, purchasing $15 USDT of CVPUSDT!
+CVPUSDT min time 2021-10-11 19:49:35.244716 max_time 2021-10-11 19:46:14.646284 time_diff 3.3433072
+FORUSDT has gained -1.509% within the last 3 minutes, purchasing $15 USDT of FORUSDT!
+FORUSDT min time 2021-10-11 20:12:37.988467 max_time 2021-10-11 20:09:29.341415 time_diff 3.1441175333333335
+FISUSDT has gained -1.529% within the last 3 minutes, purchasing $15 USDT of FISUSDT!
+FISUSDT min time 2021-10-11 21:33:25.471667 max_time 2021-10-11 21:30:20.430183 time_diff 3.0840247333333335
+MDXUSDT has gained -1.593% within the last 3 minutes, purchasing $15 USDT of MDXUSDT!
+MDXUSDT min time 2021-10-11 21:35:03.458794 max_time 2021-10-11 21:32:29.792542 time_diff 2.5611042
+KEYUSDT has gained -2.963% within the last 3 minutes, purchasing $15 USDT of KEYUSDT!
+KEYUSDT min time 2021-10-11 23:35:37.583179 max_time 2021-10-11 23:33:56.706754 time_diff 1.68127375
+KEYUSDT has gained -2.978% within the last 3 minutes, purchasing $15 USDT of KEYUSDT!
+KEYUSDT min time 2021-10-11 23:38:49.498153 max_time 2021-10-11 23:37:07.750940 time_diff 1.6957868833333334
+KEYUSDT has gained -1.993% within the last 3 minutes, purchasing $15 USDT of KEYUSDT!
+KEYUSDT min time 2021-10-11 23:44:54.363986 max_time 2021-10-11 23:43:21.057108 time_diff 1.5551146333333332
+KEYUSDT has gained -2.228% within the last 3 minutes, purchasing $15 USDT of KEYUSDT!
+KEYUSDT min time 2021-10-11 23:57:49.810439 max_time 2021-10-11 23:55:30.261948 time_diff 2.3258081833333337
+KEYUSDT has gained -1.609% within the last 3 minutes, purchasing $15 USDT of KEYUSDT!
+KEYUSDT min time 2021-10-11 23:59:58.457673 max_time 2021-10-11 23:58:19.077963 time_diff 1.6563285
+BARUSDT has gained -1.511% within the last 3 minutes, purchasing $15 USDT of BARUSDT!
+BARUSDT min time 2021-10-12 00:02:38.009944 max_time 2021-10-11 23:59:56.469962 time_diff 2.6923330333333335
+BARUSDT has gained -1.874% within the last 3 minutes, purchasing $15 USDT of BARUSDT!
+BARUSDT min time 2021-10-12 00:06:19.405818 max_time 2021-10-12 00:03:55.642540 time_diff 2.3960546333333337
+BARUSDT has gained -1.541% within the last 3 minutes, purchasing $15 USDT of BARUSDT!
+BARUSDT min time 2021-10-12 00:12:18.816601 max_time 2021-10-12 00:10:30.724722 time_diff 1.8015313166666667
+XVGUSDT has gained -1.597% within the last 3 minutes, purchasing $15 USDT of XVGUSDT!
+XVGUSDT min time 2021-10-12 00:12:53.487423 max_time 2021-10-12 00:11:19.648419 time_diff 1.5639834000000001
+KEYUSDT has gained -1.769% within the last 3 minutes, purchasing $15 USDT of KEYUSDT!
+KEYUSDT min time 2021-10-12 00:59:30.205899 max_time 2021-10-12 00:56:52.646749 time_diff 2.625985833333333
+KEYUSDT has gained -1.603% within the last 3 minutes, purchasing $15 USDT of KEYUSDT!
+KEYUSDT min time 2021-10-12 01:02:23.215007 max_time 2021-10-12 00:59:16.310530 time_diff 3.115074616666667
+LSKUSDT has gained -1.5% within the last 3 minutes, purchasing $15 USDT of LSKUSDT!
+LSKUSDT min time 2021-10-12 01:02:54.116781 max_time 2021-10-12 00:59:40.103212 time_diff 3.233559483333333
+RAMPUSDT has gained -1.54% within the last 3 minutes, purchasing $15 USDT of RAMPUSDT!
+RAMPUSDT min time 2021-10-12 01:05:34.677848 max_time 2021-10-12 01:03:09.944998 time_diff 2.4122141666666668
+KEYUSDT has gained -2.001% within the last 3 minutes, purchasing $15 USDT of KEYUSDT!
+KEYUSDT min time 2021-10-12 01:22:54.958044 max_time 2021-10-12 01:21:07.862416 time_diff 1.7849271333333334
+MDTUSDT has gained -1.938% within the last 3 minutes, purchasing $15 USDT of MDTUSDT!
+MDTUSDT min time 2021-10-12 01:24:08.005891 max_time 2021-10-12 01:20:45.209923 time_diff 3.3799327999999997
+PERPUSDT has gained -1.502% within the last 3 minutes, purchasing $15 USDT of PERPUSDT!
+PERPUSDT min time 2021-10-12 01:27:47.556232 max_time 2021-10-12 01:24:25.817880 time_diff 3.3623058666666665
+MDTUSDT has gained -1.869% within the last 3 minutes, purchasing $15 USDT of MDTUSDT!
+MDTUSDT min time 2021-10-12 01:30:59.301570 max_time 2021-10-12 01:27:39.306621 time_diff 3.33324915
+MDTUSDT has gained -1.563% within the last 3 minutes, purchasing $15 USDT of MDTUSDT!
+MDTUSDT min time 2021-10-12 01:40:27.654983 max_time 2021-10-12 01:37:17.800961 time_diff 3.1642336999999996
+KEYUSDT has gained -1.588% within the last 3 minutes, purchasing $15 USDT of KEYUSDT!
+KEYUSDT min time 2021-10-12 01:40:35.561145 max_time 2021-10-12 01:38:40.172902 time_diff 1.9231373833333334
+AUDIOUSDT has gained -1.5% within the last 3 minutes, purchasing $15 USDT of AUDIOUSDT!
+AUDIOUSDT min time 2021-10-12 01:42:02.376101 max_time 2021-10-12 01:40:15.735257 time_diff 1.7773474
+MDTUSDT has gained -1.545% within the last 3 minutes, purchasing $15 USDT of MDTUSDT!
+MDTUSDT min time 2021-10-12 01:42:26.476230 max_time 2021-10-12 01:40:15.733737 time_diff 2.17904155
+REQUSDT has gained -1.722% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-12 02:03:18.691728 max_time 2021-10-12 02:01:42.779198 time_diff 1.5985421666666668
+REQUSDT has gained -2.241% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-12 02:06:17.695123 max_time 2021-10-12 02:03:45.086539 time_diff 2.5434764000000003
+LSKUSDT has gained -1.711% within the last 3 minutes, purchasing $15 USDT of LSKUSDT!
+LSKUSDT min time 2021-10-12 02:13:25.968890 max_time 2021-10-12 02:11:53.117777 time_diff 1.54751855
+REQUSDT has gained -2.81% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-12 02:23:47.516920 max_time 2021-10-12 02:21:09.093786 time_diff 2.6403855666666667
+REQUSDT has gained -1.969% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-12 02:30:36.303289 max_time 2021-10-12 02:28:21.240727 time_diff 2.2510427
+ERNUSDT has gained -1.603% within the last 3 minutes, purchasing $15 USDT of ERNUSDT!
+ERNUSDT min time 2021-10-12 02:33:39.734708 max_time 2021-10-12 02:31:49.211832 time_diff 1.8420479333333333
+PERPUSDT has gained -2.937% within the last 3 minutes, purchasing $15 USDT of PERPUSDT!
+PERPUSDT min time 2021-10-12 02:33:01.739141 max_time 2021-10-12 02:31:29.565426 time_diff 1.5362285833333333
+REQUSDT has gained -2.996% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-12 02:39:40.403700 max_time 2021-10-12 02:37:27.306176 time_diff 2.2182920666666663
+REQUSDT has gained -2.951% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-12 02:44:18.806781 max_time 2021-10-12 02:41:32.794310 time_diff 2.766874516666667
+PERPUSDT has gained -2.917% within the last 3 minutes, purchasing $15 USDT of PERPUSDT!
+PERPUSDT min time 2021-10-12 02:45:49.613268 max_time 2021-10-12 02:43:35.922497 time_diff 2.2281795166666667
+REQUSDT has gained -1.5% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-12 02:52:04.424581 max_time 2021-10-12 02:50:07.705744 time_diff 1.9453139499999998
+PERPUSDT has gained -1.562% within the last 3 minutes, purchasing $15 USDT of PERPUSDT!
+PERPUSDT min time 2021-10-12 02:55:42.711342 max_time 2021-10-12 02:52:35.104935 time_diff 3.12677345
+PERPUSDT has gained -1.504% within the last 3 minutes, purchasing $15 USDT of PERPUSDT!
+PERPUSDT min time 2021-10-12 03:21:48.492294 max_time 2021-10-12 03:20:08.208441 time_diff 1.6713975499999998
+PERPUSDT has gained -1.536% within the last 3 minutes, purchasing $15 USDT of PERPUSDT!
+PERPUSDT min time 2021-10-12 03:30:58.951642 max_time 2021-10-12 03:27:33.658048 time_diff 3.4215599
+REQUSDT has gained -2.974% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-12 03:49:48.477493 max_time 2021-10-12 03:47:53.659591 time_diff 1.9136317
+REQUSDT has gained -1.715% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-12 03:55:04.519416 max_time 2021-10-12 03:51:38.868560 time_diff 3.427514266666667
+REQUSDT has gained -1.727% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-12 03:56:42.363501 max_time 2021-10-12 03:54:35.508964 time_diff 2.114242283333333
+PERPUSDT has gained -1.605% within the last 3 minutes, purchasing $15 USDT of PERPUSDT!
+PERPUSDT min time 2021-10-12 05:41:35.473182 max_time 2021-10-12 05:39:26.107783 time_diff 2.156089983333333
+REQUSDT has gained -1.607% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-12 05:43:58.626848 max_time 2021-10-12 05:40:36.227789 time_diff 3.3733176499999997
+PERPUSDT has gained -1.575% within the last 3 minutes, purchasing $15 USDT of PERPUSDT!
+PERPUSDT min time 2021-10-12 05:56:11.627355 max_time 2021-10-12 05:54:10.828291 time_diff 2.0133177333333334
+PERPUSDT has gained -2.958% within the last 3 minutes, purchasing $15 USDT of PERPUSDT!
+PERPUSDT min time 2021-10-12 05:58:11.479092 max_time 2021-10-12 05:56:01.628500 time_diff 2.1641765333333334
+PERPUSDT has gained -1.508% within the last 3 minutes, purchasing $15 USDT of PERPUSDT!
+PERPUSDT min time 2021-10-12 06:03:42.142829 max_time 2021-10-12 06:02:06.957099 time_diff 1.5864288333333334
+PERPUSDT has gained -2.228% within the last 3 minutes, purchasing $15 USDT of PERPUSDT!
+PERPUSDT min time 2021-10-12 06:06:28.195414 max_time 2021-10-12 06:03:22.003944 time_diff 3.103191166666667
+JUVUSDT has gained -2.648% within the last 3 minutes, purchasing $15 USDT of JUVUSDT!
+JUVUSDT min time 2021-10-12 06:08:44.843848 max_time 2021-10-12 06:07:03.136978 time_diff 1.6951144999999999
+JUVUSDT has gained -1.749% within the last 3 minutes, purchasing $15 USDT of JUVUSDT!
+JUVUSDT min time 2021-10-12 06:11:12.813768 max_time 2021-10-12 06:08:21.747702 time_diff 2.8511011
+PERPUSDT has gained -1.519% within the last 3 minutes, purchasing $15 USDT of PERPUSDT!
+PERPUSDT min time 2021-10-12 07:50:28.190249 max_time 2021-10-12 07:47:09.102563 time_diff 3.3181281
+NULSUSDT has gained -1.538% within the last 3 minutes, purchasing $15 USDT of NULSUSDT!
+NULSUSDT min time 2021-10-12 07:57:48.599739 max_time 2021-10-12 07:54:38.655750 time_diff 3.16573315
+REQUSDT has gained -2.007% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-12 08:11:01.360452 max_time 2021-10-12 08:08:45.705070 time_diff 2.2609230333333334
+REQUSDT has gained -1.706% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-12 08:16:28.611236 max_time 2021-10-12 08:13:00.409594 time_diff 3.4700273666666663
+XVSUSDT has gained -1.537% within the last 3 minutes, purchasing $15 USDT of XVSUSDT!
+XVSUSDT min time 2021-10-12 08:18:13.571394 max_time 2021-10-12 08:15:15.417204 time_diff 2.9692365
+REQUSDT has gained -2.398% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-12 08:24:10.878532 max_time 2021-10-12 08:22:02.113727 time_diff 2.146080083333333
+REQUSDT has gained -2.079% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-12 08:28:42.879013 max_time 2021-10-12 08:26:23.611428 time_diff 2.3211264166666665
+REQUSDT has gained -2.39% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-12 08:33:54.597666 max_time 2021-10-12 08:30:35.068408 time_diff 3.325487633333333
+PERPUSDT has gained -1.691% within the last 3 minutes, purchasing $15 USDT of PERPUSDT!
+PERPUSDT min time 2021-10-12 08:35:50.262257 max_time 2021-10-12 08:32:28.220921 time_diff 3.3673556000000002
+REQUSDT has gained -1.618% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-12 08:37:01.111318 max_time 2021-10-12 08:34:50.971506 time_diff 2.168996866666667
+REQUSDT has gained -2.285% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-12 08:40:37.101396 max_time 2021-10-12 08:38:35.614565 time_diff 2.0247805166666666
+REQUSDT has gained -1.679% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-12 09:13:41.735688 max_time 2021-10-12 09:10:13.865579 time_diff 3.464501816666667
+LTCUSDT has gained -2.231% within the last 3 minutes, purchasing $15 USDT of LTCUSDT!
+LTCUSDT min time 2021-10-12 18:37:56.878159 max_time 2021-10-12 09:12:49.970684 time_diff 565.1151245833333
+COCOSUSDT has gained -1.608% within the last 3 minutes, purchasing $15 USDT of COCOSUSDT!
+COCOSUSDT min time 2021-10-12 18:37:56.880286 max_time 2021-10-12 09:14:04.244339 time_diff 563.8772657833334
+KEYUSDT has gained -1.896% within the last 3 minutes, purchasing $15 USDT of KEYUSDT!
+KEYUSDT min time 2021-10-12 18:37:56.880346 max_time 2021-10-12 09:14:04.244444 time_diff 563.8772650333334
+LTCUSDT has gained -2.176% within the last 3 minutes, purchasing $15 USDT of LTCUSDT!
+LTCUSDT min time 2021-10-12 18:39:25.004138 max_time 2021-10-12 09:16:05.970056 time_diff 563.3172347
+BCHUSDT has gained -1.65% within the last 3 minutes, purchasing $15 USDT of BCHUSDT!
+BCHUSDT min time 2021-10-12 18:38:43.676075 max_time 2021-10-12 09:15:48.208257 time_diff 562.9244636333333
+KEYUSDT has gained -1.554% within the last 3 minutes, purchasing $15 USDT of KEYUSDT!
+KEYUSDT min time 2021-10-12 18:37:56.880346 max_time 2021-10-12 09:15:58.094305 time_diff 561.97976735
+FTTUSDT has gained -1.627% within the last 3 minutes, purchasing $15 USDT of FTTUSDT!
+FTTUSDT min time 2021-10-12 18:48:43.248206 max_time 2021-10-12 18:45:40.477986 time_diff 3.0461703333333334
+REQUSDT has gained -2.305% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-12 18:59:54.992888 max_time 2021-10-12 18:58:08.765726 time_diff 1.7704527
+XVSUSDT has gained -1.516% within the last 3 minutes, purchasing $15 USDT of XVSUSDT!
+XVSUSDT min time 2021-10-12 19:02:27.204416 max_time 2021-10-12 19:00:00.865109 time_diff 2.4389884499999996
+REQUSDT has gained -1.909% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-12 19:07:24.028956 max_time 2021-10-12 19:05:39.883532 time_diff 1.7357570666666668
+REQUSDT has gained -2.321% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-12 19:09:41.024934 max_time 2021-10-12 19:07:06.052129 time_diff 2.5828800833333334
+FISUSDT has gained -1.505% within the last 3 minutes, purchasing $15 USDT of FISUSDT!
+FISUSDT min time 2021-10-12 19:16:24.501310 max_time 2021-10-12 19:14:12.490211 time_diff 2.2001849833333336
+XVSUSDT has gained -1.565% within the last 3 minutes, purchasing $15 USDT of XVSUSDT!
+XVSUSDT min time 2021-10-12 19:16:52.981805 max_time 2021-10-12 19:14:12.486003 time_diff 2.6749300333333332
+LSKUSDT has gained -1.562% within the last 3 minutes, purchasing $15 USDT of LSKUSDT!
+LSKUSDT min time 2021-10-12 19:16:56.898348 max_time 2021-10-12 19:14:12.478246 time_diff 2.7403350333333334
+AUDIOUSDT has gained -1.535% within the last 3 minutes, purchasing $15 USDT of AUDIOUSDT!
+AUDIOUSDT min time 2021-10-12 19:17:02.812498 max_time 2021-10-12 19:14:14.542256 time_diff 2.804504033333333
+REQUSDT has gained -1.587% within the last 3 minutes, purchasing $15 USDT of REQUSDT!
+REQUSDT min time 2021-10-12 19:17:32.397893 max_time 2021-10-12 19:14:52.722485 time_diff 2.6612568
+DCRUSDT has gained -2.097% within the last 3 minutes, purchasing $15 USDT of DCRUSDT!
+DCRUSDT min time 2021-10-12 19:18:49.608121 max_time 2021-10-12 19:16:22.533333 time_diff 2.451246466666667
+LPTUSDT has gained -2.849% within the last 3 minutes, purchasing $15 USDT of LPTUSDT!
+LPTUSDT min time 2021-10-12 19:28:48.739758 max_time 2021-10-12 19:25:49.289542 time_diff 2.9908369333333336
+COCOSUSDT has gained -1.606% within the last 3 minutes, purchasing $15 USDT of COCOSUSDT!
+COCOSUSDT min time 2021-10-12 19:32:36.939136 max_time 2021-10-12 19:30:57.414511 time_diff 1.65874375
+LPTUSDT has gained -1.958% within the last 3 minutes, purchasing $15 USDT of LPTUSDT!
+LPTUSDT min time 2021-10-12 19:32:06.316876 max_time 2021-10-12 19:30:18.434419 time_diff 1.79804095

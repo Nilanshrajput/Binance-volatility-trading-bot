@@ -77,12 +77,12 @@ client = Client(access_key, secret_key)
 # SCANNING_PERIOD - by default, we check the price difference for each coin on Binance for the last 3 minutes,
 # you can change this value for different results.
 # This also determines how often each iteration of the code is executed.
-SCANNING_PERIOD = 3  # minutes
+SCANNING_PERIOD = 2  # minutes
 
 # TIME_SLEEP - how many seconds do you want between each price scan.
 # By default, every 12 seconds the price change will be recorded during SCANNING_PERIOD (3min)
 # After which the calculation is performed. The price change is also calculated every 12 seconds.
-TIME_SLEEP = 30 # seconds
+TIME_SLEEP = 20 # seconds
 
 # If True, an updated list of coins will be generated from the site - http://edgesforledges.com/watchlists/binance.
 # If False, then the list you create in TICKERS_LIST = 'tickers.txt' will be used.
@@ -92,7 +92,7 @@ CREATE_TICKER_LIST = True
 # if NUMBER_COINS_IN_LIST = 20,
 # then each period only 20 sorted coins will be added to the list (Above the lowest values with a minus sign).
 NUMBER_COINS_IN_LIST = 20
-MAX_SIGNALS = 2
+MAX_SIGNALS = 4
 
 # CV_INDEX - Coefficient of Variation. Only those coins with a COV greater than the specified value will be displayed.
 CoV_INDEX = 0.0
@@ -154,7 +154,7 @@ def get_price(client_api):
     prices = client_api.get_all_tickers()
     for coin in prices:
         for item in tickers:
-            if item + PAIR_WITH == coin['symbol'] and all(item + PAIR_WITH not in coin['symbol'] for item in EX_PAIRS) and (item + PAIR_WITH not in top_gainers) :
+            if item + PAIR_WITH == coin['symbol'] and all(item + PAIR_WITH not in coin['symbol'] for item in EX_PAIRS) and (item.removesuffix(PAIR_WITH) + PAIR_WITH not in top_gainers) :
                 initial_price[coin['symbol']] = {'symbol': coin['symbol'],
                                                  'price': coin['price'],
                                                  'time': datetime.now(),

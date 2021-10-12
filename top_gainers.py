@@ -78,7 +78,7 @@ def get_24hr_price(client_api):
 
     sorted_change_per = [ item['symbol'] for item in sorted(change_per, key=lambda item: item['priceChangePercent'], reverse= True)]
     sorted_volume = [ item['symbol'] for item in sorted(change_per, key=lambda item: item['quoteVolume'], reverse= True)]
-    neg_coin = [ item['symbol'] for item in filter(lambda x: float(x['priceChangePercent'])<-5.0, change_per)]
+    neg_coin = [ item['symbol'] for item in filter(lambda x: float(x['priceChangePercent'])<-2.0, change_per)]
     pos_coin = [ item['symbol'] for item in filter(lambda x: float(x['priceChangePercent'])>=8.0, change_per)]
     #print(len(sorted_volume[-40 :]))
     return list(set(sorted_change_per[:TOP_GAINERS]+ sorted_change_per[-TOP_GAINERS :]+sorted_volume[-10 :] + pos_coin + neg_coin)), sorted_change_per        
