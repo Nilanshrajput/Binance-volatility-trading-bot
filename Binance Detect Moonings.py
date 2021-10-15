@@ -242,8 +242,7 @@ def wait_for_price():
     pause_bot()
     # get first element from the dictionary
     firstcoin = next(iter(historical_prices[hsp_head]))  
-    print(type(historical_prices))
-    print(historical_prices)
+  
 
     #BBif historical_prices[hsp_head]['BNB' + PAIR_WITH]['time'] > datetime.now() - timedelta(minutes=float(TIME_DIFFERENCE / RECHECK_INTERVAL)):
     if historical_prices[hsp_head][firstcoin]['time'] > datetime.now() - timedelta(minutes=float(TIME_DIFFERENCE / RECHECK_INTERVAL)):
