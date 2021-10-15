@@ -22,3 +22,5 @@ _*.txt
 *tickers*.txt
 top_gainers.txt
 SMA_DATA.txt
+price_change_signals.txt
+tickers_wo_top_movers.txt
