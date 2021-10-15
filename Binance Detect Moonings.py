@@ -792,6 +792,11 @@ def sell_coins(tpsl_override = False):
                 sellCoin = True
                 sell_reason = 'External Sell Signal'
 
+            if HOLDING_TIME_LIMIT<=time_held.total_seconds()/60:
+                sellCoin = True
+                sell_reason = "HOLDING TIME LIMIT " + str(HOLDING_TIME_LIMIT) + " reached"
+
+
         if sell_all_coins:
             sellCoin = True
             sell_reason = 'Sell All Coins'
@@ -1234,6 +1239,7 @@ if __name__ == '__main__':
     CHANGE_IN_PRICE = parsed_config['trading_options']['CHANGE_IN_PRICE']
     CHANGE_IN_PRICE_LIMIT = parsed_config['trading_options']['CHANGE_IN_PRICE_LIMIT']
     STOP_LOSS = parsed_config['trading_options']['STOP_LOSS']
+    HOLDING_TIME_LIMIT = parsed_config['trading_options']['HOLDING_TIME_LIMIT']
     TAKE_PROFIT = parsed_config['trading_options']['TAKE_PROFIT']
 
     #HOLDING_LIMIT_TIME = parsed_config['trading_options']['HOLDING_LIMIT_TIME']
