@@ -242,6 +242,8 @@ def wait_for_price():
     pause_bot()
     # get first element from the dictionary
     firstcoin = next(iter(historical_prices[hsp_head]))  
+    print(type(historical_prices))
+    print(historical_prices)
 
     #BBif historical_prices[hsp_head]['BNB' + PAIR_WITH]['time'] > datetime.now() - timedelta(minutes=float(TIME_DIFFERENCE / RECHECK_INTERVAL)):
     if historical_prices[hsp_head][firstcoin]['time'] > datetime.now() - timedelta(minutes=float(TIME_DIFFERENCE / RECHECK_INTERVAL)):
@@ -255,62 +257,65 @@ def wait_for_price():
 
     # calculate the difference in prices
     for coin in historical_prices[hsp_head]:
+        for time_interval, pric_chngs in SIGNAL_PAIRS.items():
+            for pric_chng in pric_chngs:
            
-        # minimum and maximum prices over time period
-        try:
-            min_price = min(historical_prices, key = lambda x: float("inf") if x is None else float(x[coin]['price']))
-            max_price = max(historical_prices, key = lambda x: -1 if x is None else float(x[coin]['price']))
+                # minimum and maximum prices over time period
+                try:
+                    min_price = min(historical_prices[-max(time_interval*RECHECK_INTERVAL,len(historical_prices)):], key = lambda x: float("inf") if x is None else float(x[coin]['price']))
+                    max_price = max(historical_prices[-max(time_interval*RECHECK_INTERVAL,len(historical_prices)):], key = lambda x: -1 if x is None else float(x[coin]['price']))
 
-            threshold_check = (-1.0 if min_price[coin]['time'] > max_price[coin]['time'] else 1.0) * (float(max_price[coin]['price']) - float(min_price[coin]['price'])) / float(min_price[coin]['price']) * 100
-            time_diff = (min_price[coin]['time'] - max_price[coin]['time']).total_seconds()/60
-            #if coin == "BTCUSDT" or coin == "ETHUSDT":
-                #print(f"coin: {coin} min_price: {min_price[coin]['price']} max_price: {max_price[coin]['price']}")
-        except KeyError:
-            threshold_check=0
-            time_diff = 0
-            if DEBUG:
-                print(f"wait_for_price(): Got a KeyError for {coin}. If this coin was just added to your tickers file, no need to worry about this KeyError.")
-            pass
-        
-        
-        # FOR NEGATIVE PRICE CHECKING
-        if threshold_check>0 and CHANGE_IN_PRICE<0: threshold_check=0
+                    threshold_check = (-1.0 if min_price[coin]['time'] > max_price[coin]['time'] else 1.0) * (float(max_price[coin]['price']) - float(min_price[coin]['price'])) / float(min_price[coin]['price']) * 100
+                    time_diff = (min_price[coin]['time'] - max_price[coin]['time']).total_seconds()/60
+                    #if coin == "BTCUSDT" or coin == "ETHUSDT":
+                        #print(f"coin: {coin} min_price: {min_price[coin]['price']} max_price: {max_price[coin]['price']}")
+                except KeyError:
+                    threshold_check=0
+                    time_diff = 0
+                    if DEBUG:
+                        print(f"wait_for_price(): Got a KeyError for {coin}. If this coin was just added to your tickers file, no need to worry about this KeyError.")
+                    pass
+                
+                
+                # FOR NEGATIVE PRICE CHECKING
+                if threshold_check>0 and pric_chng<0: threshold_check=0
 
-        # each coin with higher gains than our CHANGE_IN_PRICE is added to the volatile_coins dict if less than TRADE_SLOTS is not reached.
-        # FOR NEGATIVE PRICE CHECKING
-        #if abs(threshold_check) > abs(CHANGE_IN_PRICE):
-        if abs(CHANGE_IN_PRICE) <=abs(threshold_check) <= abs(CHANGE_IN_PRICE_LIMIT) and time_diff>=TIME_DIFFERENCE/2:
-            coins_up +=1
+                # each coin with higher gains than our CHANGE_IN_PRICE is added to the volatile_coins dict if less than TRADE_SLOTS is not reached.
+                # FOR NEGATIVE PRICE CHECKING
+                #if abs(threshold_check) > abs(CHANGE_IN_PRICE):
+                #if abs(CHANGE_IN_PRICE) <=abs(threshold_check) <= abs(CHANGE_IN_PRICE_LIMIT) and time_diff>=time_interval/2:
+                if abs(pric_chng) <=abs(threshold_check) and time_diff>=time_interval/2:
+                    coins_up +=1
 
-            if coin not in volatility_cooloff:
-                volatility_cooloff[coin] = datetime.now() - timedelta(minutes=TIME_DIFFERENCE)
-                # volatility_cooloff[coin] = datetime.now() - timedelta(minutes=COOLOFF_PERIOD)
-            
-            # only include coin as volatile if it hasn't been picked up in the last TIME_DIFFERENCE minutes already
-            if datetime.now() >= volatility_cooloff[coin] + timedelta(minutes=TIME_DIFFERENCE):
-            #if datetime.now() >= volatility_cooloff[coin] + timedelta(minutes=COOLOFF_PERIOD):
-                volatility_cooloff[coin] = datetime.now()
+                    if coin not in volatility_cooloff:
+                        volatility_cooloff[coin] = datetime.now() - timedelta(minutes=TIME_DIFFERENCE)
+                        # volatility_cooloff[coin] = datetime.now() - timedelta(minutes=COOLOFF_PERIOD)
+                    
+                    # only include coin as volatile if it hasn't been picked up in the last TIME_DIFFERENCE minutes already
+                    if datetime.now() >= volatility_cooloff[coin] + timedelta(minutes=TIME_DIFFERENCE):
+                    #if datetime.now() >= volatility_cooloff[coin] + timedelta(minutes=COOLOFF_PERIOD):
+                        volatility_cooloff[coin] = datetime.now()
 
-                if len(coins_bought) + len(volatile_coins) < TRADE_SLOTS or TRADE_SLOTS == 0:
-                    volatile_coins[coin] = round(threshold_check, 3)
-                    signal_msg = f'{coin} has gained {volatile_coins[coin]}% within the last {TIME_DIFFERENCE} minutes, purchasing ${TRADE_TOTAL} {PAIR_WITH} of {coin}!'
-                    print(signal_msg)
-                    log_signal = f"{coin} min time {min_price[coin]['time']} max_time {max_price[coin]['time']} time_diff {time_diff}"
-                    with open('price_change_signals.txt', 'a+') as f:
-                        f.write(signal_msg + '\n')
-                        f.write(log_signal+ '\n')
+                        if len(coins_bought) + len(volatile_coins) < TRADE_SLOTS or TRADE_SLOTS == 0:
+                            volatile_coins[coin] = round(threshold_check, 3)
+                            signal_msg = f'{coin} has gained/droped {volatile_coins[coin]}% within the last {time_interval} minutes, purchasing ${TRADE_TOTAL} {PAIR_WITH} of {coin}!'
+                            print(signal_msg)
+                            log_signal = f"{coin} min time {min_price[coin]['time']} max_time {max_price[coin]['time']} time_diff {time_diff}"
+                            with open('price_change_signals.txt', 'a+') as f:
+                                f.write(signal_msg + '\n')
+                                f.write(log_signal+ '\n')
+                        else:
+                            print(f'{txcolors.WARNING}{coin} has gained/droped {round(threshold_check, 3)}% within the last {time_interval} minutes, but you are using all available trade slots!{txcolors.DEFAULT}')
+                    #else:
+                        #if len(coins_bought) == TRADE_SLOTS:
+                        #    print(f'{txcolors.WARNING}{coin} has gained {round(threshold_check, 3)}% within the last {TIME_DIFFERENCE} minutes, but you are using all available trade slots!{txcolors.DEFAULT}')
+                        #else:
+                        #    print(f'{txcolors.WARNING}{coin} has gained {round(threshold_check, 3)}% within the last {TIME_DIFFERENCE} minutes, but failed cool off period of {COOLOFF_PERIOD} minutes! Curr COP is {volatility_cooloff[coin] + timedelta(minutes=COOLOFF_PERIOD)}{txcolors.DEFAULT}')
+                elif threshold_check < pric_chng:
+                    coins_down +=1
+
                 else:
-                    print(f'{txcolors.WARNING}{coin} has gained {round(threshold_check, 3)}% within the last {TIME_DIFFERENCE} minutes, but you are using all available trade slots!{txcolors.DEFAULT}')
-            #else:
-                #if len(coins_bought) == TRADE_SLOTS:
-                #    print(f'{txcolors.WARNING}{coin} has gained {round(threshold_check, 3)}% within the last {TIME_DIFFERENCE} minutes, but you are using all available trade slots!{txcolors.DEFAULT}')
-                #else:
-                #    print(f'{txcolors.WARNING}{coin} has gained {round(threshold_check, 3)}% within the last {TIME_DIFFERENCE} minutes, but failed cool off period of {COOLOFF_PERIOD} minutes! Curr COP is {volatility_cooloff[coin] + timedelta(minutes=COOLOFF_PERIOD)}{txcolors.DEFAULT}')
-        elif threshold_check < CHANGE_IN_PRICE:
-            coins_down +=1
-
-        else:
-            coins_unchanged +=1
+                    coins_unchanged +=1
 
     # Disabled until fix
     #print(f'Up: {coins_up} Down: {coins_down} Unchanged: {coins_unchanged}')
@@ -1228,6 +1233,7 @@ if __name__ == '__main__':
     TRADE_SLOTS = parsed_config['trading_options']['TRADE_SLOTS']
     FIATS = parsed_config['trading_options']['FIATS']
     
+    SIGNAL_PAIRS = parsed_config['trading_options']['SIGNAL_PAIRS']
     TIME_DIFFERENCE = parsed_config['trading_options']['TIME_DIFFERENCE']
     RECHECK_INTERVAL = parsed_config['trading_options']['RECHECK_INTERVAL']
     
@@ -1363,7 +1369,7 @@ if __name__ == '__main__':
                 historic_profit_incfees_perc = (historic_profit_incfees_total / total_capital_config) * 100
 
     # rolling window of prices; cyclical queue
-    historical_prices = [None] * (TIME_DIFFERENCE * RECHECK_INTERVAL)
+    historical_prices = [None] * (9 * RECHECK_INTERVAL)
     hsp_head = -1
 
     # prevent including a coin in volatile_coins if it has already appeared there less than TIME_DIFFERENCE minutes ago
