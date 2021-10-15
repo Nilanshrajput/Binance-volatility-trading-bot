@@ -260,9 +260,11 @@ def wait_for_price():
             for pric_chng in pric_chngs:
            
                 # minimum and maximum prices over time period
+                
                 try:
-                    min_price = min(historical_prices[-max(time_interval*RECHECK_INTERVAL,len(historical_prices)):], key = lambda x: float("inf") if x is None else float(x[coin]['price']))
-                    max_price = max(historical_prices[-max(time_interval*RECHECK_INTERVAL,len(historical_prices)):], key = lambda x: -1 if x is None else float(x[coin]['price']))
+                    non_none_historical_prices = list(filter(None, historical_prices))
+                    min_price = min(non_none_historical_prices[-time_interval*RECHECK_INTERVAL:], key = lambda x: float("inf") if x is None else float(x[coin]['price']))
+                    max_price = max(non_none_historical_prices[-time_interval*RECHECK_INTERVAL:], key = lambda x: -1 if x is None else float(x[coin]['price']))
 
                     threshold_check = (-1.0 if min_price[coin]['time'] > max_price[coin]['time'] else 1.0) * (float(max_price[coin]['price']) - float(min_price[coin]['price'])) / float(min_price[coin]['price']) * 100
                     time_diff = (min_price[coin]['time'] - max_price[coin]['time']).total_seconds()/60
@@ -799,6 +801,10 @@ def sell_coins(tpsl_override = False):
                 sellCoin = True
                 sell_reason = 'External Sell Signal'
 
+            if HOLDING_TIME_LIMIT<=time_held.total_seconds()/60:
+                sellCoin = True
+                sell_reason = "HOLDING TIME LIMIT " + str(HOLDING_TIME_LIMIT) + " reached"
+
         if sell_all_coins:
             sellCoin = True
             sell_reason = 'Sell All Coins'
@@ -1242,6 +1248,7 @@ if __name__ == '__main__':
     CHANGE_IN_PRICE = parsed_config['trading_options']['CHANGE_IN_PRICE']
     CHANGE_IN_PRICE_LIMIT = parsed_config['trading_options']['CHANGE_IN_PRICE_LIMIT']
     STOP_LOSS = parsed_config['trading_options']['STOP_LOSS']
+    HOLDING_TIME_LIMIT = parsed_config['trading_options']['HOLDING_TIME_LIMIT']
     TAKE_PROFIT = parsed_config['trading_options']['TAKE_PROFIT']
 
     #HOLDING_LIMIT_TIME = parsed_config['trading_options']['HOLDING_LIMIT_TIME']
