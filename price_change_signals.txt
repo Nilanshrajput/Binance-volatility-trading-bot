@@ -1302,3 +1302,5 @@ VITEUSDT has gained -1.525% within the last 3 minutes, purchasing $15 USDT of VI
 VITEUSDT min time 2021-10-15 18:19:19.570379 max_time 2021-10-15 18:15:42.669222 time_diff 3.6150192833333334
 DEXEUSDT has gained -2.284% within the last 3 minutes, purchasing $15 USDT of DEXEUSDT!
 DEXEUSDT min time 2021-10-15 18:20:52.664179 max_time 2021-10-15 18:17:42.882087 time_diff 3.1630348666666666
+AXSUSDT has gained/droped -2.552% within the last 2 minutes, purchasing $15 USDT of AXSUSDT!
+AXSUSDT min time 2021-10-15 19:06:21.841051 max_time 2021-10-15 19:05:17.568100 time_diff 1.0712158500000002

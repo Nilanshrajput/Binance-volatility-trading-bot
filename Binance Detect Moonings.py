@@ -299,12 +299,15 @@ def wait_for_price():
                             volatile_coins[coin] = round(threshold_check, 3)
                             signal_msg = f'{coin} has gained/droped {volatile_coins[coin]}% within the last {time_interval} minutes, purchasing ${TRADE_TOTAL} {PAIR_WITH} of {coin}!'
                             print(signal_msg)
-                            log_signal = f"{coin} min time {min_price[coin]['time']} max_time {max_price[coin]['time']} time_diff {time_diff}"
-                            with open('price_change_signals.txt', 'a+') as f:
-                                f.write(signal_msg + '\n')
-                                f.write(log_signal+ '\n')
+                            
                         else:
                             print(f'{txcolors.WARNING}{coin} has gained/droped {round(threshold_check, 3)}% within the last {time_interval} minutes, but you are using all available trade slots!{txcolors.DEFAULT}')
+                        
+                        log_signal = f"{coin} min time {min_price[coin]['time']} max_time {max_price[coin]['time']} time_diff {time_diff}"
+                        with open('price_change_signals.txt', 'a+') as f:
+                                f.write(signal_msg + '\n')
+                                f.write(log_signal+ '\n')
+                
                     #else:
                         #if len(coins_bought) == TRADE_SLOTS:
                         #    print(f'{txcolors.WARNING}{coin} has gained {round(threshold_check, 3)}% within the last {TIME_DIFFERENCE} minutes, but you are using all available trade slots!{txcolors.DEFAULT}')
